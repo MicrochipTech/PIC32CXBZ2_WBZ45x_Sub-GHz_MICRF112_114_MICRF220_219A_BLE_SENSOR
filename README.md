@@ -28,11 +28,11 @@ Checkout the <a href="https://microchipsupport.force.com/s/" target="_blank">Tec
 
 This application demonstrates the use of an MICRF112/114 as transmitter and MICRF220/219A as receiver using ASK MODULATION with WBZ451 Curiosity Board.
 
-![](Docs/Picture1.png)
+![](docs/Picture1.png)
 
 In this Demo the [BLE Sensor application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor) is implemented on both transmitter part and receiver part to control the RGB LED. The RGB values are received from the [(MBD App)](https://play.google.com/store/apps/details?id=com.microchip.bluetooth.data&hl=en_IN&gl=US) using BLE Sensor application and then it is transmitted through MICRF112/114. The MICRF220/219A receives the RGB values and updates the RGB LED using [BLE Sensor application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor).
 
-![Alt Text](Docs/micrf_working.gif)
+![Alt Text](docs/micrf_working.gif)
 
 The above video shows the working of MICRF112(433MHz) and MICRF219A(433MHz).
 
