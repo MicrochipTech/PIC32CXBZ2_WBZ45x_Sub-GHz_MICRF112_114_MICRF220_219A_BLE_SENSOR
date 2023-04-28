@@ -31,7 +31,7 @@ Checkout the <a href="https://microchipsupport.force.com/s/" target="_blank">Tec
 
 ## 1. Introduction<a name="step1">
 
-This application demonstrates the use of an MICRF112 433MHz as transmitter using ASK Modulation interfaced with WBZ451 Curiosity Board to control the RGB LED of WBZ451 Curiosity board on receiver part. This LED can be controlled by Microchip Bluetooth Data ([(MBD)](https://play.google.com/store/apps/details?id=com.microchip.bluetooth.data&hl=en_IN&gl=US) application through Bluetooth Low Energy (BLE) using [BLE Sensor application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor).The temperature data is also periodically reported to the mobile phone through BLE.
+This application demonstrates the use of an MICRF112 433MHz as transmitter using ASK Modulation interfaced with WBZ451 Curiosity Board which gets the RGB values from the Microchip Bluetooth Data ([(MBD)](https://play.google.com/store/apps/details?id=com.microchip.bluetooth.data&hl=en_IN&gl=US) application through Bluetooth Low Energy (BLE) using [BLE Sensor application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor). Then the RGB values are tranmitted through MICRF112.
 
 ![](docs/Picture1.png)
 
@@ -50,8 +50,6 @@ The Data frame of the Transmitted data is shown below.
 
 - Connect the MICRF112-433 EVALBOARD with the WBZ451 CURIOSITY BOARD using the below table.
 
-![](docs/micrf_1.png)
-
 | MICRF112 | WBZ451		   | Description |
 | :- | :- | :- |
 | J1-1     |    3.3V       |     VDD     |
@@ -60,6 +58,8 @@ The Data frame of the Transmitted data is shown below.
 | J2-1     |  RST          |   Enable    |
 | J2-2     |       GND     |     GND     |
 | J2-3     |    N/C        |    N/C      |
+
+![](docs/micrf_1.png)
 
 ![](docs/micrf_2.png) ![](docs/micrf_3.png)
 
@@ -99,7 +99,7 @@ The Data frame of the Transmitted data is shown below.
 
 ![](docs/Ble_sensor_project_graph.png)
 
-**Step 3** - In MCC harmony project graph add the tc0 module from device  Library->Harmony->peripherals->TC and configure as shown below.
+**Step 3** - In MCC harmony project graph add the TC0 module from device  Library->Harmony->peripherals->TC->TC0 and configure as shown below.
 
 ![](docs/tc0.png)
 
@@ -120,7 +120,7 @@ The Data frame of the Transmitted data is shown below.
 
 **Step 8** - To Add the Source files. Right click the Source Files and select "Add Existing items" to add .c files from [MICRF112](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/MICRF112) folder.
 
-**Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src" and replace the app.h and app.c files from the given location.
+**Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src" and replace the app.h and app.c files from the link given below.
 
 - [app.h](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/firmware/src/app.h)
 
@@ -184,6 +184,9 @@ void update_ble_data(void)
 
 **Step 12** - Clean and build the project. To run the project, select "Make and program device" button.
 
+**Step 13** - To the test the application in MBD app follow the steps provided below.
+
+![](docs/1.png) ![](docs/2.png) ![](docs/3.png) ![](docs/4.png) ![](docs/5.png)
 
 ## 6. Board Programming<a name="step6">
 
@@ -207,7 +210,7 @@ Follow the steps provided in the link to [Build and program the application](htt
 
 - After programming the board, the expected application behavior is shown in the below [video](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_BLE_UART_E_PAPER_Display/blob/main/docs/Working_Demo.gif).
 
-![Alt Text](docs/Working_Demo.gif)
+![Alt Text](docs/micrf_working.gif)
 
 
 
