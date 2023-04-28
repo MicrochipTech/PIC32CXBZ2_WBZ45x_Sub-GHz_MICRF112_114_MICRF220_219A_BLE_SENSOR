@@ -44,18 +44,18 @@ This application demonstrates the use of an MICRF220/219A as receiver using ASK 
 
 ## 3. Hardware Setup<a name="step3">
 
-- Connect the MICRF112-433 EVALBOARD with the WBZ451 CURIOSITY BOARD using the below table.
+- Connect the MICRF220-433 EVALBOARD with the WBZ451 CURIOSITY BOARD using the below table.
 
 ![](docs/micrf_1.png)
 
 | MICRF112 | WBZ451		   | Description |
 | :- | :- | :- |
-| J1-1     |    3.3V       |     VDD     |
-| J1-2     | 	 GND 	   |     GND     |
-| J1-3     |  INT		   |     Data Out|
-| J2-1     |  RST          |   Enable    |
-| J2-2     |       GND     |     GND     |
-| J2-3     |    N/C        |    N/C      |
+| VDD     |    3.3V       |     VDD     |
+| GND     | 	 GND 	   |     GND     |
+| DO     |  INT		   |     Data IN|
+| SCLK     |  NC          |   Enable    |
+| SHDN    |       NC     |     GND     |
+| RSSI     |    AN        |    N/C      |
 
 ![](docs/micrf_2.png) ![](docs/micrf_3.png)
 
@@ -95,7 +95,7 @@ This application demonstrates the use of an MICRF220/219A as receiver using ASK 
 
 ![](docs/Ble_sensor_project_graph.png)
 
-**Step 3** - In MCC harmony project graph add the tc0 from device resources->peripherals->TC and configure as shown below.
+**Step 3** - In MCC harmony project graph add the TC0 from device resources->peripherals->TC and configure as shown below.
 
 ![](docs/tc0.png)
 

@@ -118,7 +118,7 @@ The Data frame of the Transmitted data is shown below.
 
 **Step 7** - To Add the Header files. Right click the Header Files and select "Add Existing items" to add .h files from [MICRF112](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/MICRF112) folder.
 
-**Step 8** - To Add the Source files. Right click the Source Files and select "Add Existing items" to add .C files from [MICRF112](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/MICRF112) folder.
+**Step 8** - To Add the Source files. Right click the Source Files and select "Add Existing items" to add .c files from [MICRF112](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/MICRF112) folder.
 
 **Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src" and replace the app.h and app.c files from the given location.
 
