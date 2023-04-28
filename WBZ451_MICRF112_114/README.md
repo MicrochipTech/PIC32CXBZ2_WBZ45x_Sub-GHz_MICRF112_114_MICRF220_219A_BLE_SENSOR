@@ -99,7 +99,7 @@ The Data frame of the Transmitted data is shown below.
 
 ![](docs/Ble_sensor_project_graph.png)
 
-**Step 3** - In MCC harmony project graph add the tc0 from device resources->peripherals->TC and configure as shown below.
+**Step 3** - In MCC harmony project graph add the tc0 module from device  Library->Harmony->peripherals->TC and configure as shown below.
 
 ![](docs/tc0.png)
 
@@ -113,11 +113,14 @@ The Data frame of the Transmitted data is shown below.
 
 **Step 6** - [Generate the code](https://onlinedocs.microchip.com/pr/GUID-A5330D3A-9F51-4A26-B71D-8503A493DF9C-en-US-1/index.html?GUID-9C28F407-4879-4174-9963-2CF34161398E).
 
-**Step 7** - To Add the Header files. Right click the Header Files and select "Add Existing items" to add the files from [micrf](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/micrf112) folder.
+| Note: Download or clone the application to do the following steps !! |
+| --- |
 
-**Step 8** - To Add the Source files. Right click the Source Files and select "Add Existing items" to add the files from [micrf](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/micrf112) folder.
+**Step 7** - To Add the Header files. Right click the Header Files and select "Add Existing items" to add .h files from [MICRF112](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/MICRF112) folder.
 
-**Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src" to Copy and paste the app.h and app.c files from the given location.
+**Step 8** - To Add the Source files. Right click the Source Files and select "Add Existing items" to add .C files from [MICRF112](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/MICRF112) folder.
+
+**Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src" and replace the app.h and app.c files from the given location.
 
 - [app.h](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/firmware/src/app.h)
 
@@ -125,11 +128,57 @@ The Data frame of the Transmitted data is shown below.
 
 **Step 10** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble\app_ble.c" and do the following changes.
 
+- Edit/Replace the folllowing line.
+
+```
+#define GAP_DEV_NAME_VALUE          "BLE_SENSOR_MICRF"
+```
+
 ![](docs/app_ble.png)
 
-![](docs/id.png)
+- Edit/Replace the folllowing code.
 
+```
+BLE_GAP_Addr_T devAddr;
+devAddr.addrType = BLE_GAP_ADDR_TYPE_PUBLIC;
+devAddr.addr[0] = 0x12;
+devAddr.addr[1] = 0x01;
+devAddr.addr[2] = 0x78;
+devAddr.addr[3] = 0xA6;
+devAddr.addr[4] = 0xB7;
+devAddr.addr[5] = 0xC8;
+```
+
+![](docs/id.png)
+	
 **Step 11** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble_sensor.c" and do the following changes.
+
+- Replace the folllowing code.
+
+```
+void update_ble_data(void)
+{
+    unsigned int r,g,b;
+    rgb_ble_data = 0;
+    HSV2RGB(bleSensorData.RGB_color.Hue,bleSensorData.RGB_color.Saturation,bleSensorData.RGB_color.Value,&r,&g,&b);
+    r = (r>>0x0D)+1;
+    g = (g>>0x0D)+1;
+    b = (b>>0x0D)+1;
+    rgb_ble_data=((r*1000)+(g*100)+(b*10));
+    if(bleSensorData.rgbOnOffStatus == LED_ON)
+    {
+        rgb_ble_data += 5;
+    }
+    else
+    {
+        rgb_ble_data += 1;
+    }
+
+    APP_Msg_T    appMsg;
+    appMsg.msgId = APP_MSG_MICRF_EVT;
+    OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);
+}
+```
 
 ![](docs/ble_sensor.png)
 
