@@ -6,7 +6,7 @@
 > "IOT Made Easy!" 
 
 Devices: **| PIC32CXBZ2 | WBZ45x |**<br>
-Features: **| BLE | E-PAPER |**
+Features: **| BLE SENSOR | MICRF112-433-EV |**
 
 
 ## ⚠ Disclaimer
@@ -31,9 +31,13 @@ Checkout the <a href="https://microchipsupport.force.com/s/" target="_blank">Tec
 
 ## 1. Introduction<a name="step1">
 
-This application demonstrates the use of an MICRF112/114 as transmitter using ASK Modulation interfaced with WBZ451 Curiosity Board to control the RGB LED of WBZ451 Curiosity board on receiver part. This LED can be controlled by Microchip Bluetooth Data ([(MBD)](https://play.google.com/store/apps/details?id=com.microchip.bluetooth.data&hl=en_IN&gl=US) application through Bluetooth Low Energy (BLE) using [BLE Sensor application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor).The temperature data is also periodically reported to the mobile phone through BLE.
+This application demonstrates the use of an MICRF112 433MHz as transmitter using ASK Modulation interfaced with WBZ451 Curiosity Board to control the RGB LED of WBZ451 Curiosity board on receiver part. This LED can be controlled by Microchip Bluetooth Data ([(MBD)](https://play.google.com/store/apps/details?id=com.microchip.bluetooth.data&hl=en_IN&gl=US) application through Bluetooth Low Energy (BLE) using [BLE Sensor application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor).The temperature data is also periodically reported to the mobile phone through BLE.
 
 ![](docs/Picture1.png)
+
+The Data frame of the Transmitted data is shown below. 
+
+![](docs/Untitled2.png)
 
 ## 2. Bill of materials<a name="step2">
 
@@ -46,6 +50,8 @@ This application demonstrates the use of an MICRF112/114 as transmitter using AS
 
 - Connect the MICRF112-433 EVALBOARD with the WBZ451 CURIOSITY BOARD using the below table.
 
+![](docs/micrf_1.png)
+
 | MICRF112 | WBZ451		   | Description |
 | :- | :- | :- |
 | J1-1     |    3.3V       |     VDD     |
@@ -55,7 +61,7 @@ This application demonstrates the use of an MICRF112/114 as transmitter using AS
 | J2-2     |       GND     |     GND     |
 | J2-3     |    N/C        |    N/C      |
 
-![](docs/connection.png) ![](docs/pin_connection.png)
+![](docs/micrf_2.png) ![](docs/micrf_3.png)
 
 ## 4. Software Setup<a name="step4">
 
@@ -78,7 +84,7 @@ This application demonstrates the use of an MICRF112/114 as transmitter using AS
 
 - [Microchip Bluetooth Data (MBD) iOS/Android app](https://play.google.com/store/apps/details?id=com.microchip.bluetooth.data&hl=en_IN&gl=US)
 
-- [MPLAB X IPE v6.00](https://microchipdeveloper.com/ipe:installation)
+- [MPLAB X IPE v6.05](https://microchipdeveloper.com/ipe:installation)
 
 ## 5. Harmony MCC Configuration<a name="step5">
 
@@ -107,19 +113,27 @@ This application demonstrates the use of an MICRF112/114 as transmitter using AS
 
 **Step 6** - [Generate the code](https://onlinedocs.microchip.com/pr/GUID-A5330D3A-9F51-4A26-B71D-8503A493DF9C-en-US-1/index.html?GUID-9C28F407-4879-4174-9963-2CF34161398E).
 
-**Step 7** - To Add Header files Right click the Header Files to Add Existing items from the [micrf](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/micrf112)
+**Step 7** - To Add the Header files. Right click the Header Files and select "Add Existing items" to add the files from [micrf](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/micrf112) folder.
 
-**Step 8** - To Add Source files Right click the Source Files to Add Existing items from the [micrf](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/micrf112)
+**Step 8** - To Add the Source files. Right click the Source Files and select "Add Existing items" to add the files from [micrf](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/micrf112) folder.
 
-**Step 9** - Copy and paste the app.h and app.c files from the given location.
+**Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src" to Copy and paste the app.h and app.c files from the given location.
 
-[app.h](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/firmware/src/app.h)
+- [app.h](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/firmware/src/app.h)
 
-[app.c](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/firmware/src/app.c)
+- [app.c](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/firmware/src/app.c)
 
+**Step 10** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble\app_ble.c" and do the following changes.
 
+![](docs/app_ble.png)
 
-**Step 15** - Clean and build the project. To run the project, select "Make and program device" button.
+![](docs/id.png)
+
+**Step 11** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble_sensor.c" and do the following changes.
+
+![](docs/ble_sensor.png)
+
+**Step 12** - Clean and build the project. To run the project, select "Make and program device" button.
 
 
 ## 6. Board Programming<a name="step6">
@@ -136,7 +150,7 @@ Follow the steps provided in the link to [program the precompiled hex file](http
 
 The application folder can be found by navigating to the following path: 
 
-- "WBZ451_E_PAPER_BLE_UART\firmware\WBZ451_E_PAPER_BLE_UART.X"
+- "WBZ451_MICRF112_114/firmware/WBZ451_MICRF112_114.X"
 
 Follow the steps provided in the link to [Build and program the application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor#build-and-program-the-application-guid-3d55fb8a-5995-439d-bcd6-deae7e8e78ad-section).
 
