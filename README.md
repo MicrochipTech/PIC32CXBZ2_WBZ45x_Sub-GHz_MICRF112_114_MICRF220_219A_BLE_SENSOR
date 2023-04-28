@@ -6,7 +6,7 @@
 > "IOT Made Easy!" 
 
 Devices: **| PIC32CXBZ2 | WBZ45x |**<br>
-Features: **| BLE SENSOR | MICRF112-433-EV |**
+Features: **| BLE | E-PAPER |**
 
 
 ## ⚠ Disclaimer
