@@ -107,13 +107,19 @@ This application demonstrates the use of an MICRF112/114 as transmitter using AS
 
 **Step 6** - [Generate the code](https://onlinedocs.microchip.com/pr/GUID-A5330D3A-9F51-4A26-B71D-8503A493DF9C-en-US-1/index.html?GUID-9C28F407-4879-4174-9963-2CF34161398E).
 
-**Step 7** - To Add Header files Right click the Header Files to Add Existing items from the [micrf] (https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/micrf112)
+**Step 7** - To Add Header files Right click the Header Files to Add Existing items from the [micrf](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/micrf112)
+
+**Step 8** - To Add Source files Right click the Source Files to Add Existing items from the [micrf](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/micrf112)
+
+**Step 9** - Copy and paste the app.h and app.c files from the given location.
+
+[app.h](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/firmware/src/app.h)
+
+[app.c](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/firmware/src/app.c)
 
 
 
-
-
-
+**Step 15** - Clean and build the project. To run the project, select "Make and program device" button.
 
 
 ## 6. Board Programming<a name="step6">
