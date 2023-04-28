@@ -1,4 +1,4 @@
-# PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF220_219A
+# PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF220/219A
 
 <img src="docs/IoT-Made-Easy-Logo.png" width=100>
 
@@ -31,7 +31,7 @@ Checkout the <a href="https://microchipsupport.force.com/s/" target="_blank">Tec
 
 ## 1. Introduction<a name="step1">
 
-This application demonstrates the use of an MICRF22-433MHz as receiver using ASK Modulation interfaced with the WBZ451 Curiosity Board to control the RGB LED of the WBZ451 Curiosity board with the data received from the MICRF112.
+This application demonstrates the use of an MICRF220/219A as receiver using ASK Modulation interfaced with the WBZ451 Curiosity Board to control the RGB LED of the WBZ451 Curiosity board with the data received from the MICRF112.
 
 ![](docs/Picture1.png)
 
@@ -40,7 +40,7 @@ This application demonstrates the use of an MICRF22-433MHz as receiver using ASK
 | TOOLS | QUANTITY |
 | :- | :- |
 | [PIC32CX-BZ2 and WBZ451 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV96B94A) | 1 |
-| [MICRF112-433 EVALBOARD](https://www.microchip.com/en-us/development-tool/MICRF112-433-EV) | 1 |
+| [MICRF220-433 EVALBOARD](https://www.microchip.com/en-us/development-tool/MICRF220-433-EV) | 1 |
 
 ## 3. Hardware Setup<a name="step3">
 
