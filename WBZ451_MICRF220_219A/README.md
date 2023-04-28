@@ -46,18 +46,18 @@ This application demonstrates the use of an MICRF220/219A as receiver using ASK 
 
 - Connect the MICRF220-433 EVALBOARD with the WBZ451 CURIOSITY BOARD using the below table.
 
-![](docs/micrf_1.png)
-
-| MICRF112 | WBZ451		   | Description |
+| MICRF220/219A | WBZ451		   | Description |
 | :- | :- | :- |
 | VDD     |    3.3V       |     VDD     |
 | GND     | 	 GND 	   |     GND     |
-| DO     |  INT		   |     Data IN|
-| SCLK     |  NC          |   Enable    |
-| SHDN    |       NC     |     GND     |
-| RSSI     |    AN        |    N/C      |
+| DO     |  PWM		   |     Data Out|
+| SCLK     |  NC          |   SCLK    |
+| SHDN    |       NC     |     Shutdown     |
+| RSSI     |    AN        |    RSSI Noise      |
 
-![](docs/micrf_2.png) ![](docs/micrf_3.png)
+![](docs/micrf_1.png)
+
+![](docs/micrf_2.png)
 
 ## 4. Software Setup<a name="step4">
 
@@ -84,7 +84,7 @@ This application demonstrates the use of an MICRF220/219A as receiver using ASK 
 
 ## 5. Harmony MCC Configuration<a name="step5">
 
-### Getting started with MICRF112 with WBZ451 CURIOSITY BOARD.
+### Getting started with MICRF220/219A with WBZ451 CURIOSITY BOARD.
 
 | Tip | New users of MPLAB Code Configurator are recommended to go through the [overview](https://onlinedocs.microchip.com/pr/GUID-1F7007B8-9A46-4D03-AEED-650357BA760D-en-US-6/index.html?GUID-AFAB9227-B10C-4FAE-9785-98474664B50A) |
 | :- | :- |
@@ -95,9 +95,11 @@ This application demonstrates the use of an MICRF220/219A as receiver using ASK 
 
 ![](docs/Ble_sensor_project_graph.png)
 
-**Step 3** - In MCC harmony project graph add the TC0 from device resources->peripherals->TC and configure as shown below.
+**Step 3** - In MCC harmony project graph add the TC0 and TC1 from device resources->peripherals->TC and configure as shown below.
 
 ![](docs/tc0.png)
+
+![](docs/tc1.png)
 
 **Step 4** - In MCC harmony project graph select the Pin Configurations from plugins and configure as shown below.
 
@@ -109,27 +111,45 @@ This application demonstrates the use of an MICRF220/219A as receiver using ASK 
 
 **Step 6** - [Generate the code](https://onlinedocs.microchip.com/pr/GUID-A5330D3A-9F51-4A26-B71D-8503A493DF9C-en-US-1/index.html?GUID-9C28F407-4879-4174-9963-2CF34161398E).
 
-**Step 7** - To Add the Header files. Right click the Header Files and select "Add Existing items" to add the files from [micrf](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/micrf112) folder.
+| Note: Download or clone the application to do the following steps !! |
+| --- |
 
-**Step 8** - To Add the Source files. Right click the Source Files and select "Add Existing items" to add the files from [micrf](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/micrf112) folder.
+**Step 7** - To Add the Header files. Right click the Header Files and select "Add Existing items" to add .h files from [MICRF220_219A](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF220_219A/MICRF220_219A) folder.
 
-**Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src" to Copy and paste the app.h and app.c files from the given location.
+**Step 8** - To Add the Source files. Right click the Source Files and select "Add Existing items" to add .c files from [MICRF220_219A](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF220_219A/MICRF220_219A) folder.
 
-- [app.h](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/firmware/src/app.h)
+**Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src" and replace the app.h and app.c files from the link given below.
 
-- [app.c](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/firmware/src/app.c)
+- [app.h](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF220_219A/firmware/src/app.h)
+
+- [app.c](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF220_219A/firmware/src/app.c)
 
 **Step 10** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble\app_ble.c" and do the following changes.
 
+- Edit/Replace the folllowing line.
+
+```
+#define GAP_DEV_NAME_VALUE          "BLE_SENSOR_MICRF"
+```
+
 ![](docs/app_ble.png)
+
+- Edit/Replace the folllowing code.
+
+```
+BLE_GAP_Addr_T devAddr;
+devAddr.addrType = BLE_GAP_ADDR_TYPE_PUBLIC;
+devAddr.addr[0] = 0x9A;
+devAddr.addr[1] = 0x21;
+devAddr.addr[2] = 0x78;
+devAddr.addr[3] = 0xA6;
+devAddr.addr[4] = 0xB7;
+devAddr.addr[5] = 0xC8;
+```
 
 ![](docs/id.png)
 
-**Step 11** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble_sensor.c" and do the following changes.
-
-![](docs/ble_sensor.png)
-
-**Step 12** - Clean and build the project. To run the project, select "Make and program device" button.
+**Step 11** - Clean and build the project. To run the project, select "Make and program device" button.
 
 
 ## 6. Board Programming<a name="step6">
@@ -146,15 +166,15 @@ Follow the steps provided in the link to [program the precompiled hex file](http
 
 The application folder can be found by navigating to the following path: 
 
-- "WBZ451_MICRF112_114/firmware/WBZ451_MICRF112_114.X"
+- "WBZ451_MICRF220_219A/firmware/WBZ451_MICRF220_219A.X"
 
 Follow the steps provided in the link to [Build and program the application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor#build-and-program-the-application-guid-3d55fb8a-5995-439d-bcd6-deae7e8e78ad-section).
 
 ## 7. Run the demo<a name="step7">
 
-- After programming the board, the expected application behavior is shown in the below [video](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_BLE_UART_E_PAPER_Display/blob/main/docs/Working_Demo.gif).
+- After programming the board, the expected application behavior is shown in the below [video](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF220_219A/docs/micrf_working.gif).
 
-![Alt Text](docs/Working_Demo.gif)
+![Alt Text](docs/micrf_working.gif)
 
 
 

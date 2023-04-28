@@ -31,7 +31,7 @@ Checkout the <a href="https://microchipsupport.force.com/s/" target="_blank">Tec
 
 ## 1. Introduction<a name="step1">
 
-This application demonstrates the use of an MICRF112 433MHz as transmitter using ASK Modulation interfaced with WBZ451 Curiosity Board which gets the RGB values from the Microchip Bluetooth Data ([(MBD)](https://play.google.com/store/apps/details?id=com.microchip.bluetooth.data&hl=en_IN&gl=US) application through Bluetooth Low Energy (BLE) using [BLE Sensor application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor). Then the RGB values are tranmitted through MICRF112.
+This application demonstrates the use of an MICRF112 433MHz as transmitter using ASK Modulation interfaced with the WBZ451 Curiosity Board which gets the RGB values from the Microchip Bluetooth Data ([(MBD)](https://play.google.com/store/apps/details?id=com.microchip.bluetooth.data&hl=en_IN&gl=US) application through Bluetooth Low Energy (BLE) using [BLE Sensor application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor). Then the RGB values are tranmitted through MICRF112.
 
 ![](docs/Picture1.png)
 
@@ -54,7 +54,7 @@ The Data frame of the Transmitted data is shown below.
 | :- | :- | :- |
 | J1-1     |    3.3V       |     VDD     |
 | J1-2     | 	 GND 	   |     GND     |
-| J1-3     |  INT		   |     Data Out|
+| J1-3     |  INT		   |     Data In|
 | J2-1     |  RST          |   Enable    |
 | J2-2     |       GND     |     GND     |
 | J2-3     |    N/C        |    N/C      |
@@ -208,7 +208,7 @@ Follow the steps provided in the link to [Build and program the application](htt
 
 ## 7. Run the demo<a name="step7">
 
-- After programming the board, the expected application behavior is shown in the below [video](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_BLE_UART_E_PAPER_Display/blob/main/docs/Working_Demo.gif).
+- After programming the board, the expected application behavior is shown in the below [video](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/docs/micrf_working.gif).
 
 ![Alt Text](docs/micrf_working.gif)
 
