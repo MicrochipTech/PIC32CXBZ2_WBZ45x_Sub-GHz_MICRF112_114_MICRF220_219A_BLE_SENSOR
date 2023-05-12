@@ -64,7 +64,7 @@
 #include "ble_otaps/ble_otaps.h"
 #include "app_ota/app_ota_handler.h"
 #include "sensors/inc/rgb_led.h"
-#include "transmitter.h"
+#include "MICRF112/transmitter.h"
 
 // *****************************************************************************
 // *****************************************************************************

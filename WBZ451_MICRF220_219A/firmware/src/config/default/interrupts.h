@@ -72,6 +72,7 @@ void SERCOM0_USART_InterruptHandler (void);
 void SERCOM2_USART_InterruptHandler (void);
 void TC0_TimerInterruptHandler (void);
 void TC1_TimerInterruptHandler (void);
+void ADCHS_InterruptHandler (void);
 
 
 

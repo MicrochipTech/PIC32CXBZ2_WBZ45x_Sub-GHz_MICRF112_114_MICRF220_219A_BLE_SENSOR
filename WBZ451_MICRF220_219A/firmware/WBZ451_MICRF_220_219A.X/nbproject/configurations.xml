@@ -213,6 +213,15 @@
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
+      <logicalFolder name="MICRF220_219A"
+                     displayName="MICRF220_219A"
+                     projectFiles="true">
+        <itemPath>../src/MICRF220_219A/dvr_adc.h</itemPath>
+        <itemPath>../src/MICRF220_219A/dvr_crc.h</itemPath>
+        <itemPath>../src/MICRF220_219A/dvr_micrf220_219a.h</itemPath>
+        <itemPath>../src/MICRF220_219A/manchester.h</itemPath>
+        <itemPath>../src/MICRF220_219A/receiver.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f3" displayName="packs" projectFiles="true">
         <logicalFolder name="f2" displayName="CMSIS" projectFiles="true">
           <logicalFolder name="f1" displayName="CMSIS" projectFiles="true">
@@ -475,11 +484,6 @@
       <itemPath>../src/app_trps.h</itemPath>
       <itemPath>../src/app.h</itemPath>
       <itemPath>../src/app_ble_conn_handler.h</itemPath>
-      <itemPath>../src/dvr_adc.h</itemPath>
-      <itemPath>../src/dvr_crc.h</itemPath>
-      <itemPath>../src/dvr_micrf220_219a.h</itemPath>
-      <itemPath>../src/manchester.h</itemPath>
-      <itemPath>../src/receiver.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -639,6 +643,15 @@
           <itemPath>../src/third_party/rtos/FreeRTOS/Source/stream_buffer.c</itemPath>
         </logicalFolder>
       </logicalFolder>
+      <logicalFolder name="MICRF220_219A"
+                     displayName="MICRF220_219A"
+                     projectFiles="true">
+        <itemPath>../src/MICRF220_219A/dvr_adc.c</itemPath>
+        <itemPath>../src/MICRF220_219A/dvr_crc.c</itemPath>
+        <itemPath>../src/MICRF220_219A/dvr_micrf220_219a.c</itemPath>
+        <itemPath>../src/MICRF220_219A/manchester.c</itemPath>
+        <itemPath>../src/MICRF220_219A/receiver.c</itemPath>
+      </logicalFolder>
       <logicalFolder name="f4" displayName="Sensors" projectFiles="true">
         <itemPath>../src/sensors/src/rgb_led.c</itemPath>
         <itemPath>../src/sensors/src/temp_sensor.c</itemPath>
@@ -749,11 +762,6 @@
       <itemPath>../src/app_user_edits.c</itemPath>
       <itemPath>java_friendly_private_key.pem</itemPath>
       <itemPath>../src/app_ble_conn_handler.c</itemPath>
-      <itemPath>../src/dvr_adc.c</itemPath>
-      <itemPath>../src/dvr_crc.c</itemPath>
-      <itemPath>../src/dvr_micrf220_219a.c</itemPath>
-      <itemPath>../src/manchester.c</itemPath>
-      <itemPath>../src/receiver.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

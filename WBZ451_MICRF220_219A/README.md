@@ -114,17 +114,55 @@ This application demonstrates the use of an MICRF220/219A as receiver using ASK 
 | Note: Download or clone the application to do the following steps !! |
 | --- |
 
-**Step 7** - To Add the Header files. Right click the Header Files and select "Add Existing items" to add .h files from [MICRF220_219A](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF220_219A/MICRF220_219A) folder.
+**Step 7** - From the unzipped folder copy the folder MICRF220_219A from WBZ451_MICRF112_114 to the folder firmware/src under your MPLAB Harmony v3 application project and add the Header (dvr_crc.h, dvr_micrf112.h, transmitter.h) and Source file (dvr_crc.c, dvr_micrf112.c, transmitter.c).
 
-**Step 8** - To Add the Source files. Right click the Source Files and select "Add Existing items" to add .c files from [MICRF220_219A](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF220_219A/MICRF220_219A) folder.
+- In the project explorer, Right click on folder Header Files and add a sub folder MICRF220_219A by selecting “Add Existing Items from Folders…”
 
-**Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src" and replace the app.h and app.c files from the link given below.
+![](docs/header_add.png)
+
+- Click on “Add Folder…” button.
+
+![](docs/header_add2.png)
+
+- Select the “MICRF220_219A” folder and select “Files of Types” as Header Files.
+
+![](docs/header_add3.png)
+
+- Click on “Add” button to add the selected folder.
+
+![](docs/header_add4.png)
+ 
+- The MICRF220_219A header files gets added to your project.
+
+![](docs/header_add5.png)
+
+- In the project explorer, Right click on folder Source Files and add a sub folder MICRF220_219A by selecting “Add Existing Items from Folders…”.
+
+![](docs/source_add.png)
+
+- Click on “Add Folder…” button
+
+![](docs/source_add2.png)
+
+- Select the “MICRF220_219A” folder and select “Files of Types” as Source Files.
+
+![](docs/source_add3.png)
+
+- Click on “Add” button to add the selected folder
+
+![](docs/source_add4.png)
+
+- The MICRF220_219A source files gets added to your project.
+
+![](docs/source_add5.png)
+
+**Step 8** - In your MPLAB Harmony v3 based application go to "firmware\src" and replace the app.h and app.c files from the link given below.
 
 - [app.h](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF220_219A/firmware/src/app.h)
 
 - [app.c](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF220_219A/firmware/src/app.c)
 
-**Step 10** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble\app_ble.c" and do the following changes.
+**Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble\app_ble.c" and do the following changes.
 
 - Edit/Replace the folllowing line.
 
@@ -148,6 +186,24 @@ devAddr.addr[5] = 0xC8;
 ```
 
 ![](docs/id.png)
+
+**Step 10** - In your MPLAB Harmony v3 based application go to "firmware\src\config\default\peripheral\adchs\plib_adchs.c" and do the following changes.
+
+- Add the header file in the folllowing line.
+
+```
+#include "../MICRF220_219A/dvr_adc.h"
+```
+
+![](docs/adchs1.png)
+
+- Add the folllowing code.
+
+```
+ADCHS_CallbackRegister( ADCHS_CH5, DVR_ADC_isr, (uintptr_t)NULL);
+```
+
+![](docs/adchs2.png)
 
 **Step 11** - Clean and build the project. To run the project, select "Make and program device" button.
 

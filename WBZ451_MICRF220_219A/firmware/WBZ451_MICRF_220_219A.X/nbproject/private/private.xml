@@ -3,9 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/REPO'S/GITHUB/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/WBZ451_MICRF220_219A/firmware/src/app.c</file>
-            <file>file:/D:/REPO'S/GITHUB/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/WBZ451_MICRF220_219A/firmware/src/app_ble/app_ble.c</file>
-            <file>file:/D:/REPO'S/GITHUB/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/WBZ451_MICRF220_219A/firmware/src/app_ble_sensor.c</file>
+            <file>file:/D:/REPO'S/GITHUB/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/WBZ451_MICRF220_219A/firmware/src/config/default/peripheral/adchs/plib_adchs.c</file>
         </group>
     </open-files>
 </project-private>

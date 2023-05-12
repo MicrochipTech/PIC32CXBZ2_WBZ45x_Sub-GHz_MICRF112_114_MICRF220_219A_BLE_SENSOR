@@ -1,9 +1,9 @@
-# PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112
+# PIC32CXBZ2_WBZ45x Sub-GHz MICRF112
 
 <img src="docs/IoT-Made-Easy-Logo.png" width=100>
 
 
-> "IOT Made Easy!" 
+> "IoT Made Easy!" 
 
 Devices: **| PIC32CXBZ2 | WBZ45x |**<br>
 Features: **| BLE SENSOR | MICRF112-433-EV |**
@@ -116,17 +116,55 @@ The Data frame of the Transmitted data is shown below.
 | Note: Download or clone the application to do the following steps !! |
 | --- |
 
-**Step 7** - To Add the Header files. Right click the Header Files and select "Add Existing items" to add .h files from [MICRF112](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/MICRF112) folder.
+**Step 7** - From the unzipped folder copy the folder MICRF112 from WBZ451_MICRF112_114 to the folder firmware/src under your MPLAB Harmony v3 application project and add the Header (dvr_crc.h, dvr_micrf112.h, transmitter.h) and Source file (dvr_crc.c, dvr_micrf112.c, transmitter.c).
 
-**Step 8** - To Add the Source files. Right click the Source Files and select "Add Existing items" to add .c files from [MICRF112](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/tree/main/WBZ451_MICRF112_114/MICRF112) folder.
+- In the project explorer, Right click on folder Header Files and add a sub folder MICRF112 by selecting “Add Existing Items from Folders…”
 
-**Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src" and replace the app.h and app.c files from the link given below.
+![](docs/header_add.png)
+
+- Click on “Add Folder…” button.
+
+![](docs/header_add2.png)
+
+- Select the “MICRF112” folder and select “Files of Types” as Header Files.
+
+![](docs/header_add3.png)
+
+- Click on “Add” button to add the selected folder.
+
+![](docs/header_add4.png)
+ 
+- The MICRF112 header files gets added to your project.
+
+![](docs/header_add5.png)
+
+- In the project explorer, Right click on folder Source Files and add a sub folder MICRF112 by selecting “Add Existing Items from Folders…”.
+
+![](docs/source_add.png)
+
+- Click on “Add Folder…” button
+
+![](docs/source_add2.png)
+
+- Select the “MICRF112” folder and select “Files of Types” as Source Files.
+
+![](docs/source_add3.png)
+
+- Click on “Add” button to add the selected folder
+
+![](docs/source_add4.png)
+
+- The MICRF112 source files gets added to your project.
+
+![](docs/source_add5.png)
+
+**Step 8** - In your MPLAB Harmony v3 based application go to "firmware\src" and replace the app.h and app.c files from the link given below.
 
 - [app.h](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/firmware/src/app.h)
 
 - [app.c](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/firmware/src/app.c)
 
-**Step 10** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble\app_ble.c" and do the following changes.
+**Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble\app_ble.c" and do the following changes.
 
 - Edit/Replace the folllowing line.
 
@@ -151,7 +189,7 @@ devAddr.addr[5] = 0xC8;
 
 ![](docs/id.png)
 	
-**Step 11** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble_sensor.c" and do the following changes.
+**Step 10** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble_sensor.c" and do the following changes.
 
 - Replace the folllowing code.
 
@@ -182,9 +220,9 @@ void update_ble_data(void)
 
 ![](docs/ble_sensor.png)
 
-**Step 12** - Clean and build the project. To run the project, select "Make and program device" button.
+**Step 11** - Clean and build the project. To run the project, select "Make and program device" button.
 
-**Step 13** - To the test the application in MBD app follow the steps provided below.
+**Step 12** - To the test the application in MBD app follow the steps provided below.
 
 ![](docs/1.png) ![](docs/2.png) ![](docs/3.png) ![](docs/4.png) ![](docs/5.png)
 

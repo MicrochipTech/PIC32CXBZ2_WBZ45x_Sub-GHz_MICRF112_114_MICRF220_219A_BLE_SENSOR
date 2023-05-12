@@ -212,6 +212,11 @@
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
+      <logicalFolder name="MICRF112" displayName="MICRF112" projectFiles="true">
+        <itemPath>../src/MICRF112/dvr_crc.h</itemPath>
+        <itemPath>../src/MICRF112/dvr_micrf112.h</itemPath>
+        <itemPath>../src/MICRF112/transmitter.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f3" displayName="packs" projectFiles="true">
         <logicalFolder name="f2" displayName="CMSIS" projectFiles="true">
           <logicalFolder name="f1" displayName="CMSIS" projectFiles="true">
@@ -474,9 +479,6 @@
       <itemPath>../src/app_trps.h</itemPath>
       <itemPath>../src/app.h</itemPath>
       <itemPath>../src/app_ble_conn_handler.h</itemPath>
-      <itemPath>../src/dvr_crc.h</itemPath>
-      <itemPath>../src/dvr_micrf112.h</itemPath>
-      <itemPath>../src/transmitter.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -635,6 +637,11 @@
           <itemPath>../src/third_party/rtos/FreeRTOS/Source/stream_buffer.c</itemPath>
         </logicalFolder>
       </logicalFolder>
+      <logicalFolder name="MICRF112" displayName="MICRF112" projectFiles="true">
+        <itemPath>../src/MICRF112/dvr_crc.c</itemPath>
+        <itemPath>../src/MICRF112/dvr_micrf112.c</itemPath>
+        <itemPath>../src/MICRF112/transmitter.c</itemPath>
+      </logicalFolder>
       <logicalFolder name="f4" displayName="Sensors" projectFiles="true">
         <itemPath>../src/sensors/src/rgb_led.c</itemPath>
         <itemPath>../src/sensors/src/temp_sensor.c</itemPath>
@@ -745,9 +752,6 @@
       <itemPath>../src/app_user_edits.c</itemPath>
       <itemPath>java_friendly_private_key.pem</itemPath>
       <itemPath>../src/app_ble_conn_handler.c</itemPath>
-      <itemPath>../src/dvr_crc.c</itemPath>
-      <itemPath>../src/dvr_micrf112.c</itemPath>
-      <itemPath>../src/transmitter.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

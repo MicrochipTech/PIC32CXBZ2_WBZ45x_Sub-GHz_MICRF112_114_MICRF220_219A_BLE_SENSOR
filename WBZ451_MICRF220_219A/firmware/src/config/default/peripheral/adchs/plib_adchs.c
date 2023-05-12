@@ -41,6 +41,7 @@
 // DOM-IGNORE-END
 #include "device.h"
 #include "plib_adchs.h"
+#include "../MICRF220_219A/dvr_adc.h"
 
 #define ADCHS_CHANNEL_32  (32U)
 
@@ -50,6 +51,8 @@
 // *****************************************************************************
 // *****************************************************************************
 
+/* Object to hold callback function and context */
+static ADCHS_CALLBACK_OBJECT ADCHS_CallbackObj[11];
 
 
 
@@ -62,7 +65,7 @@ void ADCHS_Initialize(void)
     ADCHS_REGS->ADCHS_ADCCON3 = 0x1000000;
 
     ADCHS_REGS->ADCHS_ADCTRG1 = 0x10200; 
-    ADCHS_REGS->ADCHS_ADCTRG2 = 0x0; 
+    ADCHS_REGS->ADCHS_ADCTRG2 = 0x100; 
     
     
     
@@ -82,6 +85,9 @@ void ADCHS_Initialize(void)
 
 
 
+    /* Result interrupt enable */
+    ADCHS_REGS->ADCHS_ADCGIRQEN1 = 0x20;
+
 
     /* Turn ON ADC */
     ADCHS_REGS->ADCHS_ADCCON1 |= ADCHS_ADCCON1_ON_Msk;
@@ -99,6 +105,9 @@ void ADCHS_Initialize(void)
     ADCHS_REGS->ADCHS_ADCANCON |= ADCHS_ADCANCON_ANEN7_Msk;      // Enable the clock to analog bias
     while(!((ADCHS_REGS->ADCHS_ADCANCON & ADCHS_ADCANCON_WKRDY7_Msk))); // Wait until ADC is ready
     ADCHS_REGS->ADCHS_ADCCON3 |= ADCHS_ADCCON3_DIGEN7_Msk;       // Enable ADC
+
+    ADCHS_CallbackRegister( ADCHS_CH5, DVR_ADC_isr, (uintptr_t)NULL);
+
 }
 
 
@@ -172,6 +181,11 @@ uint16_t ADCHS_ChannelResultGet(ADCHS_CHANNEL_NUM channel)
 	return (uint16_t)(*(uint32_t*)channel_addr);   
 }
 
+void ADCHS_CallbackRegister(ADCHS_CHANNEL_NUM channel, ADCHS_CALLBACK callback, uintptr_t context)
+{
+    ADCHS_CallbackObj[channel].callback_fn = callback;
+    ADCHS_CallbackObj[channel].context = context;
+}
 
 
 
@@ -181,3 +195,24 @@ bool ADCHS_EOSStatusGet(void)
                     >> ADCHS_ADCCON2_EOSRDY_Pos) != 0U);
 }
 
+void ADCHS_InterruptHandler( void )
+{
+    uint8_t i;
+    uint32_t status;
+
+    status  = ADCHS_REGS->ADCHS_ADCDSTAT1;
+    status &= ADCHS_REGS->ADCHS_ADCGIRQEN1;
+	
+
+
+    /* Check pending events and call callback if registered */
+    for(i = 0; i < 12; i++)
+    {
+        if((status & (1 << i)) && (ADCHS_CallbackObj[i].callback_fn != NULL))
+        {
+            ADCHS_CallbackObj[i].callback_fn((ADCHS_CHANNEL_NUM)i, ADCHS_CallbackObj[i].context);
+        }
+    }
+	
+	
+}

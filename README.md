@@ -1,4 +1,4 @@
-# PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112/114_MICRF220/219A
+# PIC32CXBZ2_WBZ45x Sub-GHz MICRF112/114 with MICRF220/219A
 
 <img src="docs/IoT-Made-Easy-Logo.png" width=100>
 

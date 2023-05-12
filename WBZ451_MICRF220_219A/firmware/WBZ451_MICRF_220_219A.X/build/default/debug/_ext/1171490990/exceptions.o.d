@@ -100,8 +100,8 @@ build/default/debug/_ext/1171490990/exceptions.o: \
  ../src/config/default/peripheral/tc/plib_tc1.h \
  ../src/config/default/device.h \
  ../src/config/default/peripheral/tc/plib_tc_common.h \
- ../src/config/default/peripheral/rtc/plib_rtc.h \
  ../src/config/default/peripheral/tc/plib_tc0.h \
+ ../src/config/default/peripheral/rtc/plib_rtc.h \
  ../src/config/default/peripheral/rcon/plib_rcon.h \
  ../src/config/default/peripheral/tc/plib_tc3.h \
  ../src/config/default/peripheral/tc/plib_tc2.h \
@@ -144,9 +144,9 @@ build/default/debug/_ext/1171490990/exceptions.o: \
  ../src/config/default/ble/lib/include/bt_sys.h \
  ../src/config/default/peripheral/sercom/usart/plib_sercom2_usart.h \
  ../src/config/default/peripheral/sercom/usart/plib_sercom_usart_common.h \
- ../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.h \
  ../src/config/default/driver/pds/include/pds.h \
  ../src/config/default/driver/pds/include/pds_config.h \
+ ../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.h \
  ../src/config/default/peripheral/clk/plib_clk.h \
  ../src/config/default/peripheral/gpio/plib_gpio.h \
  ../src/config/default/peripheral/nvic/plib_nvic.h \
@@ -367,9 +367,9 @@ build/default/debug/_ext/1171490990/exceptions.o: \
 
 ../src/config/default/peripheral/tc/plib_tc_common.h:
 
-../src/config/default/peripheral/rtc/plib_rtc.h:
-
 ../src/config/default/peripheral/tc/plib_tc0.h:
+
+../src/config/default/peripheral/rtc/plib_rtc.h:
 
 ../src/config/default/peripheral/rcon/plib_rcon.h:
 
@@ -459,11 +459,11 @@ build/default/debug/_ext/1171490990/exceptions.o: \
 
 ../src/config/default/peripheral/sercom/usart/plib_sercom_usart_common.h:
 
-../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.h:
-
 ../src/config/default/driver/pds/include/pds.h:
 
 ../src/config/default/driver/pds/include/pds_config.h:
+
+../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.h:
 
 ../src/config/default/peripheral/clk/plib_clk.h:
 

@@ -64,9 +64,9 @@
 #include "ble_otaps/ble_otaps.h"
 #include "app_ota/app_ota_handler.h"
 #include "sensors/inc/rgb_led.h"
-#include "receiver.h"
-#include "dvr_micrf220_219a.h"
-#include "dvr_adc.h"
+#include "MICRF220_219A/receiver.h"
+#include "MICRF220_219A/dvr_micrf220_219a.h"
+#include "MICRF220_219A/dvr_adc.h"
 #include <stdio.h>
 
 rxDataPacket_t rxPacket;                        // Populated by RX_process() if data is ready.
@@ -159,7 +159,7 @@ void APP_RGB_Handler(uint32_t val)
             RGB_LED_Off();
             sensorData->rgbOnOffStatus = LED_OFF;
             ble_send_notification(RGB_ONOFF_STATUS_NFY);
-            SYS_CONSOLE_MESSAGE(" [Touch] LED OFF \n\r");
+            SYS_CONSOLE_MESSAGE("LED OFF \n\r");
             SYS_CONSOLE_MESSAGE("\n\r");
         }
     }
@@ -170,14 +170,14 @@ void APP_RGB_Handler(uint32_t val)
             RGB_LED_SetLedColorHSV(sensorData->RGB_color.Hue,sensorData->RGB_color.Saturation,sensorData->RGB_color.Value);
             sensorData->rgbOnOffStatus = LED_ON;
             ble_send_notification(RGB_ONOFF_STATUS_NFY);
-            SYS_CONSOLE_MESSAGE(" [Touch] LED ON \n\r");
+            SYS_CONSOLE_MESSAGE("LED ON \n\r");
             SYS_CONSOLE_MESSAGE("\n\r");
         }
     }
     if( (onOff_button_read > 1) && (onOff_button_read < 5))
     {                            
         ble_send_notification(RGB_COLOR_NFY);
-        SYS_CONSOLE_MESSAGE("[Touch] COLOR SET\n\r");
+        SYS_CONSOLE_MESSAGE("COLOR SET\n\r");
     }
 }
 
@@ -306,24 +306,23 @@ void APP_Tasks ( void )
                 }
                 else if( p_appMsg->msgId == APP_MSG_MICRF_EVT)
                 {
-                    APP_Msg_T appMsg;
-//                    DVR_ADC_processConversion();                // Process ADC data
+                    APP_Msg_T appMsg;               
+                    DVR_ADC_processConversion();                // Process ADC data
                     
                     if (RX_process(&rxPacket))                  // Check if there is an RF packet received
                     {
                         (void)memcpy(&txCnt, &rxPacket.data[0], sizeof(txCnt));  
                         sprintf(result, "%ld", txCnt);
                         SYS_CONSOLE_MESSAGE("\n\r");
-                        SYS_CONSOLE_PRINT("Received Data: %ld  No.of.Packets Received: %ld \n\r",txCnt,engData.validPackets); // Display only the number of packets received
+                        SYS_CONSOLE_PRINT("Received Data: %ld\n\r",txCnt); // Display the data received
                             
                         #if MICRF_ENABLE_RSSI == 1
-                        SYS_CONSOLE_PRINT("Message RSSI/Noise RSSI: %d/%d \n\r",rxPacket.msgRssi, rxPacket.noiseRssi); // Display the RSSI values
+                        SYS_CONSOLE_PRINT("Message RSSI/Noise RSSI: %d/%d\n\r",rxPacket.msgRssi, rxPacket.noiseRssi); // Display the RSSI values
                         #endif
 
                         #if RX_ENG_DATA_ON == 1                    
-                        RX_getEngData(&engData);                
-                        SYS_CONSOLE_PRINT("Count Failure: %d  CRC Failure: %d \n\r",engData.cntFailure,engData.crcFailures); // Get the engineering data
-                        SYS_CONSOLE_PRINT("Protocol Failure: %d  Buffer overflow: %d \n\r",engData.protocolFailures,engData.bufferOverflow);
+                        RX_getEngData(&engData);      // Get the engineering data
+                        SYS_CONSOLE_PRINT("Valid Pkt:%ld,Cnt Fail:%d,CRC Fail:%d,Protocol Fail:%d,Buf:%d\n\r",engData.validPackets,engData.cntFailure,engData.crcFailures,engData.protocolFailures,engData.bufferOverflow);// Display only the number of packets received
                         #endif
 
                         appMsg.msgId = APP_TOUCH_USART_READ_MSG;

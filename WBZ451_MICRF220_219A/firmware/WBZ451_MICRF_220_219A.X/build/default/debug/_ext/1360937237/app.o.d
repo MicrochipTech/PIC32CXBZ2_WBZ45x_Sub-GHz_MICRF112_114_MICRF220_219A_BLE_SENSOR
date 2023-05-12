@@ -113,8 +113,8 @@ build/default/debug/_ext/1360937237/app.o: ../src/app.c ../src/app.h \
  ../src/config/default/crypto/crypto.h \
  ../src/config/default/peripheral/tc/plib_tc1.h \
  ../src/config/default/peripheral/tc/plib_tc_common.h \
- ../src/config/default/peripheral/rtc/plib_rtc.h \
  ../src/config/default/peripheral/tc/plib_tc0.h \
+ ../src/config/default/peripheral/rtc/plib_rtc.h \
  ../src/config/default/peripheral/rcon/plib_rcon.h \
  ../src/config/default/peripheral/tc/plib_tc3.h \
  ../src/config/default/peripheral/tc/plib_tc2.h \
@@ -143,9 +143,9 @@ build/default/debug/_ext/1360937237/app.o: ../src/app.c ../src/app.h \
  ../src/config/default/ble/lib/include/bt_sys.h \
  ../src/config/default/peripheral/sercom/usart/plib_sercom2_usart.h \
  ../src/config/default/peripheral/sercom/usart/plib_sercom_usart_common.h \
- ../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.h \
  ../src/config/default/driver/pds/include/pds.h \
  ../src/config/default/driver/pds/include/pds_config.h \
+ ../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.h \
  ../src/config/default/peripheral/clk/plib_clk.h \
  ../src/config/default/peripheral/gpio/plib_gpio.h \
  ../src/config/default/peripheral/nvic/plib_nvic.h \
@@ -176,7 +176,8 @@ build/default/debug/_ext/1360937237/app.o: ../src/app.c ../src/app.h \
  ../src/app_adv.h ../src/config/default/system/console/sys_console.h \
  ../src/config/default/ble/profile_ble/ble_otaps/ble_otaps.h \
  ../src/app_ota/app_ota_handler.h ../src/sensors/inc/rgb_led.h \
- ../src/receiver.h ../src/dvr_micrf220_219a.h ../src/dvr_adc.h
+ ../src/MICRF220_219A/receiver.h ../src/MICRF220_219A/dvr_micrf220_219a.h \
+ ../src/MICRF220_219A/dvr_adc.h
 
 ../src/app.h:
 
@@ -414,9 +415,9 @@ build/default/debug/_ext/1360937237/app.o: ../src/app.c ../src/app.h \
 
 ../src/config/default/peripheral/tc/plib_tc_common.h:
 
-../src/config/default/peripheral/rtc/plib_rtc.h:
-
 ../src/config/default/peripheral/tc/plib_tc0.h:
+
+../src/config/default/peripheral/rtc/plib_rtc.h:
 
 ../src/config/default/peripheral/rcon/plib_rcon.h:
 
@@ -476,11 +477,11 @@ build/default/debug/_ext/1360937237/app.o: ../src/app.c ../src/app.h \
 
 ../src/config/default/peripheral/sercom/usart/plib_sercom_usart_common.h:
 
-../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.h:
-
 ../src/config/default/driver/pds/include/pds.h:
 
 ../src/config/default/driver/pds/include/pds_config.h:
+
+../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.h:
 
 ../src/config/default/peripheral/clk/plib_clk.h:
 
@@ -552,8 +553,8 @@ build/default/debug/_ext/1360937237/app.o: ../src/app.c ../src/app.h \
 
 ../src/sensors/inc/rgb_led.h:
 
-../src/receiver.h:
+../src/MICRF220_219A/receiver.h:
 
-../src/dvr_micrf220_219a.h:
+../src/MICRF220_219A/dvr_micrf220_219a.h:
 
-../src/dvr_adc.h:
+../src/MICRF220_219A/dvr_adc.h:
