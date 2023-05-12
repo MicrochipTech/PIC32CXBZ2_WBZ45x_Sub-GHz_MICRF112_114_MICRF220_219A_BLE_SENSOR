@@ -205,7 +205,12 @@ ADCHS_CallbackRegister( ADCHS_CH5, DVR_ADC_isr, (uintptr_t)NULL);
 
 ![](docs/adchs2.png)
 
-**Step 11** - Clean and build the project. To run the project, select "Make and program device" button.
+
+**Step 11** - To Know about the implimentation of ADC to RSSI conversion go to "firmware\src\MICRF220_219A\dvr_micrf220_219a.c" in your MPLAB Harmony v3 based application.
+
+![](docs/rssi.png)
+
+**Step 12** - Clean and build the project. To run the project, select "Make and program device" button.
 
 
 ## 6. Board Programming<a name="step6">
