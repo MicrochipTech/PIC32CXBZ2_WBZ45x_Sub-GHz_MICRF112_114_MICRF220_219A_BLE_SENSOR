@@ -43,6 +43,7 @@
 #include "osal/osal_freertos_extend.h"
 #include "app_ble.h"
 #include "app_ble_handler.h"
+#include "../default/driver/device_support/include/info_block.h"
 
 
 #include "app_trsps_handler.h"
@@ -63,7 +64,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
-#define GAP_DEV_NAME_VALUE          "BLE_SENSOR_MICRF"
+#define GAP_DEV_NAME_VALUE          "BLE_MICRF_219A"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -198,6 +199,8 @@ void APP_BleConfigBasic()
     BLE_GAP_SetAdvTxPowerLevel(9,&advTxPower);      /* Advertising TX Power */
     
     BLE_GAP_Addr_T devAddr;
+    if (!IB_GetBdAddr(&devAddr.addr[0]) )
+    {
     devAddr.addrType = BLE_GAP_ADDR_TYPE_PUBLIC;
     devAddr.addr[0] = 0x9A;
     devAddr.addr[1] = 0x21;
@@ -208,7 +211,7 @@ void APP_BleConfigBasic()
 
     // Configure device address
     BLE_GAP_SetDeviceAddr(&devAddr);
-    
+    }
     
     memset(&advParam, 0, sizeof(BLE_GAP_AdvParams_T));
     advParam.intervalMin = 512;     /* Advertising Interval Min */

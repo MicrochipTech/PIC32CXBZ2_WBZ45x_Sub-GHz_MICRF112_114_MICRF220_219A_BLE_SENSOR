@@ -36,7 +36,6 @@
 
 #include "dvr_adc.h"
 #include <stdbool.h>
-#include "config/default/peripheral/adchs/plib_adchs.h"
 #include "definitions.h"
 #include "dvr_micrf220_219a.h"
 // </editor-fold>
@@ -90,7 +89,7 @@ uint16_t mV = 0;
 void DVR_ADC_init( void )
 {
     ADCHS_ChannelConversionStart(ADCHS_CH5);
-    DVR_ADC_enable();
+    ADCHS_CallbackRegister( ADCHS_CH5, DVR_ADC_isr, (uintptr_t)NULL);
 }
 /* ****************************************************************************************************************** */
 // </editor-fold>
@@ -114,7 +113,6 @@ void DVR_ADC_init( void )
 void DVR_ADC_enable( void )
 {
     ADCHS_ChannelConversionStart(ADCHS_CH5);
-    TC1_TimerStart();
 }
 /* ****************************************************************************************************************** */
 // </editor-fold>
@@ -137,7 +135,7 @@ void DVR_ADC_enable( void )
  **********************************************************************************************************************/
 void DVR_ADC_disable( void )
 {
-    TC1_TimerStop();
+    ADCHS_GlobalLevelConversionStop();
 }
 /* ****************************************************************************************************************** */
 // </editor-fold>

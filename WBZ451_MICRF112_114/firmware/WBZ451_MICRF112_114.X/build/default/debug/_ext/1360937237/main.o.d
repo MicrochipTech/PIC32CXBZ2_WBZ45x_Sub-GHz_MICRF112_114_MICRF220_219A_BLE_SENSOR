@@ -1,7 +1,7 @@
 build/default/debug/_ext/1360937237/main.o: ../src/main.c \
  ../src/config/default/definitions.h \
  ../src/config/default/crypto/crypto.h \
- ../src/config/default/peripheral/rtc/plib_rtc.h \
+ ../src/config/default/peripheral/tc/plib_tc0.h \
  ../src/config/default/device.h ../src/packs/WBZ451_DFP/wbz451.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/core_cm4.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_version.h \
@@ -96,8 +96,8 @@ build/default/debug/_ext/1360937237/main.o: ../src/main.c \
  ../src/config/default/device_cache.h ../src/config/default/device.h \
  ../src/config/default/toolchain_specifics.h \
  ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h \
- ../src/config/default/peripheral/tc/plib_tc0.h \
  ../src/config/default/peripheral/tc/plib_tc_common.h \
+ ../src/config/default/peripheral/rtc/plib_rtc.h \
  ../src/config/default/peripheral/rcon/plib_rcon.h \
  ../src/config/default/peripheral/tc/plib_tc3.h \
  ../src/config/default/peripheral/tc/plib_tc2.h \
@@ -141,9 +141,9 @@ build/default/debug/_ext/1360937237/main.o: ../src/main.c \
  ../src/config/default/ble/lib/include/bt_sys.h \
  ../src/config/default/peripheral/sercom/usart/plib_sercom2_usart.h \
  ../src/config/default/peripheral/sercom/usart/plib_sercom_usart_common.h \
- ../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.h \
  ../src/config/default/driver/pds/include/pds.h \
  ../src/config/default/driver/pds/include/pds_config.h \
+ ../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.h \
  ../src/config/default/peripheral/clk/plib_clk.h \
  ../src/config/default/peripheral/gpio/plib_gpio.h \
  ../src/config/default/peripheral/nvic/plib_nvic.h \
@@ -162,7 +162,7 @@ build/default/debug/_ext/1360937237/main.o: ../src/main.c \
 
 ../src/config/default/crypto/crypto.h:
 
-../src/config/default/peripheral/rtc/plib_rtc.h:
+../src/config/default/peripheral/tc/plib_tc0.h:
 
 ../src/config/default/device.h:
 
@@ -356,9 +356,9 @@ build/default/debug/_ext/1360937237/main.o: ../src/main.c \
 
 ../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h:
 
-../src/config/default/peripheral/tc/plib_tc0.h:
-
 ../src/config/default/peripheral/tc/plib_tc_common.h:
+
+../src/config/default/peripheral/rtc/plib_rtc.h:
 
 ../src/config/default/peripheral/rcon/plib_rcon.h:
 
@@ -450,11 +450,11 @@ build/default/debug/_ext/1360937237/main.o: ../src/main.c \
 
 ../src/config/default/peripheral/sercom/usart/plib_sercom_usart_common.h:
 
-../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.h:
-
 ../src/config/default/driver/pds/include/pds.h:
 
 ../src/config/default/driver/pds/include/pds_config.h:
+
+../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.h:
 
 ../src/config/default/peripheral/clk/plib_clk.h:
 

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/debug/ble_sensor_touch.X.debug.elf">
+  <executable name="dist/default/debug/WBZ451_MICRF112_114.X.debug.elf">
     <memory name="program">
       <units>bytes</units>
       <length>507392</length>
-      <used>165686</used>
-      <free>341706</free>
+      <used>165774</used>
+      <free>341618</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>130048</length>
-      <used>81122</used>
-      <free>48926</free>
+      <used>81126</used>
+      <free>48922</free>
     </memory>
   </executable>
 </project>

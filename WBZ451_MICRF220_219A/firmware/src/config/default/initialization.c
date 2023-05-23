@@ -422,11 +422,9 @@ void SYS_Initialize ( void* data )
 
 	GPIO_Initialize();
 
-    TC1_TimerInitialize();
+    RTC_Initialize();
 
     TC0_TimerInitialize();
-
-    RTC_Initialize();
 
     TC3_CompareInitialize();
 

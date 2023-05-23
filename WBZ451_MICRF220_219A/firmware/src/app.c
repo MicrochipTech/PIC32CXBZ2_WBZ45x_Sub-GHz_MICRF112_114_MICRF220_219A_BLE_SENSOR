@@ -264,7 +264,9 @@ void APP_Tasks ( void )
             if (appInitialized)
             {
                 APP_Msg_T appMsg;
-                appMsg.msgId = APP_MSG_MICRF_EVT;
+                appMsg.msgId = APP_MSG_MICRF_ADC_EVT;
+                OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);
+                appMsg.msgId = APP_MSG_MICRF_DATA_EVT;
                 OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);
                 appData.state = APP_STATE_SERVICE_TASKS;
             }
@@ -304,11 +306,18 @@ void APP_Tasks ( void )
                 {                    
                     APP_RGB_Handler(txCnt);                    
                 }
-                else if( p_appMsg->msgId == APP_MSG_MICRF_EVT)
-                {
-                    APP_Msg_T appMsg;               
-                    DVR_ADC_processConversion();                // Process ADC data
+                else if(p_appMsg->msgId== APP_MSG_MICRF_ADC_EVT)
+                {                    
+                    DVR_ADC_enable();
+                    DVR_ADC_processConversion();                // Process ADC data   
                     
+                    APP_Msg_T appMsg;
+                    appMsg.msgId = APP_MSG_MICRF_ADC_EVT;
+                    OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0); 
+                }
+                else if( p_appMsg->msgId == APP_MSG_MICRF_DATA_EVT)
+                {
+                    APP_Msg_T appMsg;           
                     if (RX_process(&rxPacket))                  // Check if there is an RF packet received
                     {
                         (void)memcpy(&txCnt, &rxPacket.data[0], sizeof(txCnt));  
@@ -328,7 +337,7 @@ void APP_Tasks ( void )
                         appMsg.msgId = APP_TOUCH_USART_READ_MSG;
                         OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);
                     }
-                    appMsg.msgId = APP_MSG_MICRF_EVT;
+                    appMsg.msgId = APP_MSG_MICRF_DATA_EVT;
                     OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);                  
                 }
             }

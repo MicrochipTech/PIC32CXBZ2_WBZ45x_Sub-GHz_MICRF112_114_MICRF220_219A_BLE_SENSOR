@@ -130,6 +130,8 @@ build/default/debug/_ext/1074542781/app_ble.o: ../src/app_ble/app_ble.c \
  ../src/config/default/ble/middleware_ble/ble_gcm/ble_scm.h \
  ../src/config/default/ble/middleware_ble/ble_gcm/ble_dd.h \
  ../src/config/default/ble/middleware_ble/ble_log/ble_log.h \
+ ../src/config/default/../default/driver/device_support/include/info_block.h \
+ ../src/config/default/../default/driver/device_support/include/rf_system.h \
  ../src/app_ble/app_trsps_handler.h \
  ../src/config/default/ble/profile_ble/ble_trsps/ble_trsps.h \
  ../src/app_ble/app_otaps_handler.h \
@@ -402,6 +404,10 @@ build/default/debug/_ext/1074542781/app_ble.o: ../src/app_ble/app_ble.c \
 ../src/config/default/ble/middleware_ble/ble_gcm/ble_dd.h:
 
 ../src/config/default/ble/middleware_ble/ble_log/ble_log.h:
+
+../src/config/default/../default/driver/device_support/include/info_block.h:
+
+../src/config/default/../default/driver/device_support/include/rf_system.h:
 
 ../src/app_ble/app_trsps_handler.h:
 

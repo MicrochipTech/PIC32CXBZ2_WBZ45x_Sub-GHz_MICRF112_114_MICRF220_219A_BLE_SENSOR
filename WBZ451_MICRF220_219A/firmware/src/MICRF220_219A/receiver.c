@@ -32,7 +32,7 @@
 #include "dvr_micrf220_219a.h"
 #include <string.h>
 #include "dvr_crc.h"
-
+#include "definitions.h"
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="Macro Definitions">
@@ -88,8 +88,8 @@ void RX_messageReceived( uint8_t *pData, uint8_t cnt );
 /* ****************************************************************************************************************** */
 /* FILE VARIABLE DEFINITIONS */
 
-static          rxData_t   rxData_;
-static volatile rxPacket_t rxPacketBuffer_;
+static rxData_t   rxData_;
+static rxPacket_t rxPacketBuffer_;
 static volatile bool       bDataReady_;     // Set true when data is ready
 
 #if RX_ENG_DATA_ON == 1
@@ -307,7 +307,7 @@ void RX_messageReceived( uint8_t *pData, uint8_t cnt )
             (void)memcpy(&rxPacketBuffer_, pData, cnt);     // Copy the source data to the buffer
 #endif
             
-#if MICRF_ENABLE_RSSI == 1            
+#if MICRF_ENABLE_RSSI == 1   
             rxData_.msgRssi = MICRF_getRssiLastReceived();  // Get the RSSI of the message
             rxData_.noiseRssi = MICRF_getRssiNoiseFloor();  // Get the RSSI of the NoiseFloor
 #endif

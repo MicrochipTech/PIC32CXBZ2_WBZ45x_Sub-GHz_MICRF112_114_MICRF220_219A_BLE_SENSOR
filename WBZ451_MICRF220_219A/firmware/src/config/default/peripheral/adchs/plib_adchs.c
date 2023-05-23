@@ -41,7 +41,6 @@
 // DOM-IGNORE-END
 #include "device.h"
 #include "plib_adchs.h"
-#include "../MICRF220_219A/dvr_adc.h"
 
 #define ADCHS_CHANNEL_32  (32U)
 
@@ -105,10 +104,7 @@ void ADCHS_Initialize(void)
     ADCHS_REGS->ADCHS_ADCANCON |= ADCHS_ADCANCON_ANEN7_Msk;      // Enable the clock to analog bias
     while(!((ADCHS_REGS->ADCHS_ADCANCON & ADCHS_ADCANCON_WKRDY7_Msk))); // Wait until ADC is ready
     ADCHS_REGS->ADCHS_ADCCON3 |= ADCHS_ADCCON3_DIGEN7_Msk;       // Enable ADC
-
-    ADCHS_CallbackRegister( ADCHS_CH5, DVR_ADC_isr, (uintptr_t)NULL);
-
-}
+    }
 
 
 /* Enable ADCHS channels */

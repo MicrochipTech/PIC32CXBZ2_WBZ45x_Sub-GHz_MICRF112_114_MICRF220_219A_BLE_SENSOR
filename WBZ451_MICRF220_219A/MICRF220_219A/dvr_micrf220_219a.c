@@ -42,8 +42,7 @@
 #include "dvr_micrf220_219a.h"
 #include <string.h>
 #include "manchester.h"
-#include "config/default/peripheral/gpio/plib_gpio.h"
-#include "config/default/peripheral/tc/plib_tc0.h"
+#include "definitions.h"
 
 #if MICRF_ENABLE_RSSI == 1              /* MICRF_ENABLE_RSSI is defined in the dvr_micrf220_219a.h file.  */
 #include "dvr_adc.h"
@@ -64,7 +63,6 @@
 /* This is custom per project.  The values below work for the demo.  This timer value along with RX_SAMPLES_PER_BIT is 
  * used to set the bit rate. */
 
-//#define SAMPLE_TIMER_ISR_SET()  TC0_TimerCallbackRegister(MICRF_sampleTimerISR)  /* Sets the call-back function */
 #define SAMPLE_TIMER_START()    TC0_TimerStart()                               /* Used to start the timer */
 #define SAMPLE_TIMER_STOP()     TC0_TimerStop()                                /* Used to stop the timer */
 
@@ -72,7 +70,6 @@
 /* MICRF_ENABLE_RSSI is defined in the dvr_micrf220_219a.h file.  */
 #if MICRF_ENABLE_RSSI == 1                              /* If disabled, don't enable the RSSI calculation functions */
 
-#define ADC_SET_CALLBACK()      DVR_ADC_setCallback(MICRF_setAdcValue);
 #define ADC_RUN()               DVR_ADC_enable()
 #define ADC_STOP()              DVR_ADC_disable()        
 
@@ -382,7 +379,7 @@ void MICRF_rxEnable( bool bEnable )
         TC0_TimerCallbackRegister(MICRF_sampleTimerISR, (uintptr_t)NULL); // Set the ISR callback 
         SAMPLE_TIMER_START();       // Start the timer for sampling
 #if MICRF_ENABLE_RSSI == 1          /* MICRF_ENABLE_RSSI is defined in the dvr_micrf220_219a.h file.  */
-        ADC_SET_CALLBACK();         // Set the ADC callback
+        DVR_ADC_setCallback(MICRF_setAdcValue);         // Set the ADC callback
         ADC_RUN();                  // Start the ADC running!
 #endif
     }

@@ -121,7 +121,7 @@ void update_ble_data(void)
     {
         rgb_ble_data += 1;
     }
-
+    SYS_CONSOLE_PRINT("Data Sent: %ld\n\r",rgb_ble_data);
     APP_Msg_T    appMsg;
     appMsg.msgId = APP_MSG_MICRF_EVT;
     OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);
