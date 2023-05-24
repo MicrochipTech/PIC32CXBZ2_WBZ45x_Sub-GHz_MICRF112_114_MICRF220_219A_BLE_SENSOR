@@ -95,26 +95,28 @@ This application demonstrates the use of an MICRF220/219A as receiver using ASK 
 
 ![](docs/Ble_sensor_project_graph.png)
 
-**Step 3** - In MCC harmony project graph add the TC0 and TC1 from device resources->peripherals->TC and configure as shown below.
+**Step 3** - In MCC harmony project graph add the TC0 from device resources->peripherals->TC and configure as shown below.
 
 ![](docs/tc0.png)
 
-![](docs/tc1.png)
+**Step 4** - In MCC harmony project graph select the ADCHS and configure as shown below.
 
-**Step 4** - In MCC harmony project graph select the Pin Configurations from plugins and configure as shown below.
+![](docs/adchs_pg.png)
+
+**Step 5** - In MCC harmony project graph select the Pin Configurations from plugins and configure as shown below.
 
 ![](docs/pin.png)
 
-**Step 5** - The project graph after making the configurations is shown below.
+**Step 6** - The project graph after making the configurations is shown below.
 
 ![](docs/pg.png)
 
-**Step 6** - [Generate the code](https://onlinedocs.microchip.com/pr/GUID-A5330D3A-9F51-4A26-B71D-8503A493DF9C-en-US-1/index.html?GUID-9C28F407-4879-4174-9963-2CF34161398E).
+**Step 7** - [Generate the code](https://onlinedocs.microchip.com/pr/GUID-A5330D3A-9F51-4A26-B71D-8503A493DF9C-en-US-1/index.html?GUID-9C28F407-4879-4174-9963-2CF34161398E).
 
 | Note: Download or clone the application to do the following steps !! |
 | --- |
 
-**Step 7** - From the unzipped folder copy the folder MICRF220_219A from WBZ451_MICRF112_114 to the folder firmware/src under your MPLAB Harmony v3 application project and add the Header (dvr_crc.h, dvr_micrf112.h, transmitter.h) and Source file (dvr_crc.c, dvr_micrf112.c, transmitter.c).
+**Step 8** - From the unzipped folder copy the folder MICRF220_219A from WBZ451_MICRF112_114 to the folder firmware/src under your MPLAB Harmony v3 application project and add the Header (dvr_crc.h, dvr_micrf112.h, transmitter.h) and Source file (dvr_crc.c, dvr_micrf112.c, transmitter.c).
 
 - In the project explorer, Right click on folder Header Files and add a sub folder MICRF220_219A by selecting “Add Existing Items from Folders…”
 
@@ -156,18 +158,26 @@ This application demonstrates the use of an MICRF220/219A as receiver using ASK 
 
 ![](docs/source_add5.png)
 
-**Step 8** - In your MPLAB Harmony v3 based application go to "firmware\src" and replace the app.h and app.c files from the link given below.
+**Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src" and replace the app.h and app.c files from the link given below.
 
 - [app.h](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF220_219A/firmware/src/app.h)
 
 - [app.c](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF220_219A/firmware/src/app.c)
 
-**Step 9** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble\app_ble.c" and do the following changes.
+**Step 10** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble\app_ble.c" and do the following changes.
+
+- Add the folllowing line.
+
+```
+#include "../default/driver/device_support/include/info_block.h"
+```
+
+![](docs/app_ble1.png)
 
 - Edit/Replace the folllowing line.
 
 ```
-#define GAP_DEV_NAME_VALUE          "BLE_SENSOR_MICRF"
+#define GAP_DEV_NAME_VALUE          "BLE_MICRF_219A"
 ```
 
 ![](docs/app_ble.png)
@@ -176,6 +186,8 @@ This application demonstrates the use of an MICRF220/219A as receiver using ASK 
 
 ```
 BLE_GAP_Addr_T devAddr;
+if (!IB_GetBdAddr(&devAddr.addr[0]) )
+{
 devAddr.addrType = BLE_GAP_ADDR_TYPE_PUBLIC;
 devAddr.addr[0] = 0x9A;
 devAddr.addr[1] = 0x21;
@@ -183,11 +195,15 @@ devAddr.addr[2] = 0x78;
 devAddr.addr[3] = 0xA6;
 devAddr.addr[4] = 0xB7;
 devAddr.addr[5] = 0xC8;
+
+// Configure device address
+BLE_GAP_SetDeviceAddr(&devAddr);
+}
 ```
 
 ![](docs/id.png)
 
-**Step 10** - In your MPLAB Harmony v3 based application go to "firmware\src\config\default\peripheral\adchs\plib_adchs.c" and do the following changes.
+**Step 11** - In your MPLAB Harmony v3 based application go to "firmware\src\config\default\peripheral\adchs\plib_adchs.c" and do the following changes.
 
 - Add the header file in the folllowing line.
 
@@ -206,11 +222,11 @@ ADCHS_CallbackRegister( ADCHS_CH5, DVR_ADC_isr, (uintptr_t)NULL);
 ![](docs/adchs2.png)
 
 
-**Step 11** - To Know about the implimentation of ADC to RSSI conversion go to "firmware\src\MICRF220_219A\dvr_micrf220_219a.c" in your MPLAB Harmony v3 based application.
+**Step 12** - To Know about the implimentation of ADC to RSSI conversion go to "firmware\src\MICRF220_219A\dvr_micrf220_219a.c" in your MPLAB Harmony v3 based application.
 
 ![](docs/rssi.png)
 
-**Step 12** - Clean and build the project. To run the project, select "Make and program device" button.
+**Step 13** - Clean and build the project. To run the project, select "Make and program device" button.
 
 
 ## 6. Board Programming<a name="step6">
