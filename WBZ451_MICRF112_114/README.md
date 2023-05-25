@@ -103,6 +103,8 @@ The Data frame of the Transmitted data is shown below.
 
 ![](docs/tc0.png)
 
+- The TC0 Timer is configured for a time period of 1000 microseconds to transmit the data. 
+
 **Step 4** - In MCC harmony project graph select the Pin Configurations from plugins and configure as shown below.
 
 ![](docs/pin.png)
@@ -209,7 +211,11 @@ BLE_GAP_SetDeviceAddr(&devAddr);
 
 **Step 11** - Clean and build the project. To run the project, select "Make and program device" button.
 
-**Step 12** - To the test the application in MBD app follow the steps provided below.
+**Step 12** - The RGB Data transmitted can be viewed in COM PORT.
+
+![](docs/tt.png)
+
+**Step 13** - To the test the application in MBD app follow the steps provided below.
 
 ![](docs/1.png) ![](docs/2.png) ![](docs/3.png) ![](docs/4.png) ![](docs/5.png)
 

@@ -99,6 +99,8 @@ This application demonstrates the use of an MICRF220/219A as receiver using ASK 
 
 ![](docs/tc0.png)
 
+- The TC0 Timer is configured for a time period of 100 microseconds to sample the received data from the transmitter.
+
 **Step 4** - In MCC harmony project graph select the ADCHS and configure as shown below.
 
 ![](docs/adchs_pg.png)
