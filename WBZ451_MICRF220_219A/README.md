@@ -203,31 +203,15 @@ BLE_GAP_SetDeviceAddr(&devAddr);
 
 ![](docs/id.png)
 
-**Step 11** - In your MPLAB Harmony v3 based application go to "firmware\src\config\default\peripheral\adchs\plib_adchs.c" and do the following changes.
+**Step 11** - To Know about the implimentation of ADC to RSSI conversion go to "firmware\src\MICRF220_219A\dvr_micrf220_219a.c" in your MPLAB Harmony v3 based application.
 
-- Add the header file in the folllowing line.
+- [dvr_micrf220_219a.c](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF220_219A/firmware/src/MICRF220_219A\dvr_micrf220_219a.c)
 
-```
-#include "../MICRF220_219A/dvr_adc.h"
-```
-
-![](docs/adchs1.png)
-
-- Add the folllowing code.
-
-```
-ADCHS_CallbackRegister( ADCHS_CH5, DVR_ADC_isr, (uintptr_t)NULL);
-```
-
-![](docs/adchs2.png)
-
-
-**Step 12** - To Know about the implimentation of ADC to RSSI conversion go to "firmware\src\MICRF220_219A\dvr_micrf220_219a.c" in your MPLAB Harmony v3 based application.
+The RSSI values can be viewed in the COM PORT.
 
 ![](docs/rssi.png)
 
-**Step 13** - Clean and build the project. To run the project, select "Make and program device" button.
-
+**Step 12** - Clean and build the project. To run the project, select "Make and program device" button.
 
 ## 6. Board Programming<a name="step6">
 
