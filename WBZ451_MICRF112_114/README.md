@@ -203,36 +203,9 @@ BLE_GAP_SetDeviceAddr(&devAddr);
 
 ![](docs/id.png)
 	
-**Step 10** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble_sensor.c" and do the following changes.
+**Step 10** - In your MPLAB Harmony v3 based application go to "firmware\src\app_ble_sensor.c" and replace the app_ble_sensor.c files from the link given below.
 
-- Replace the folllowing code.
-
-```
-void update_ble_data(void)
-{
-    unsigned int r,g,b;
-    rgb_ble_data = 0;
-    HSV2RGB(bleSensorData.RGB_color.Hue,bleSensorData.RGB_color.Saturation,bleSensorData.RGB_color.Value,&r,&g,&b);
-    r = (r>>0x0D)+1;
-    g = (g>>0x0D)+1;
-    b = (b>>0x0D)+1;
-    rgb_ble_data=((r*1000)+(g*100)+(b*10));
-    if(bleSensorData.rgbOnOffStatus == LED_ON)
-    {
-        rgb_ble_data += 5;
-    }
-    else
-    {
-        rgb_ble_data += 1;
-    }
-
-    APP_Msg_T    appMsg;
-    appMsg.msgId = APP_MSG_MICRF_EVT;
-    OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);
-}
-```
-
-![](docs/ble_sensor.png)
+- [app_ble_sensor.c](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF112_114/firmware/src/app_ble_sensor.c)
 
 **Step 11** - Clean and build the project. To run the project, select "Make and program device" button.
 
