@@ -205,7 +205,7 @@ BLE_GAP_SetDeviceAddr(&devAddr);
 
 **Step 11** - To Know about the implimentation of ADC to RSSI conversion go to "firmware\src\MICRF220_219A\dvr_micrf220_219a.c" in your MPLAB Harmony v3 based application.
 
-- [dvr_micrf220_219a.c](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF220_219A/firmware/src/MICRF220_219A\dvr_micrf220_219a.c)
+- [dvr_micrf220_219a.c](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_Sub-GHz_MICRF112_114_MICRF220_219A_BLE_SENSOR/blob/main/WBZ451_MICRF220_219A/firmware/src/MICRF220_219A/dvr_micrf220_219a.c)
 
 The RSSI values can be viewed in the COM PORT.
 
