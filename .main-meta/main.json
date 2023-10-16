@@ -41,7 +41,7 @@
             "SERCOM"
         ],
         "keywords": [
-             "IoT","BLE","Capacitive Touch","MPLAB X","XC32","PTC","SERCOM","MCC","Wireless","Development Tool","Bluetooth"
+             "IoT","BLE","Capacitive Touch","MPLAB X","XC32","PTC","SERCOM","MCC","Wireless","Development Tool","sub-ghz","bluetooth","communication"
         ],
         "additionalData": {
             "longDescription": {
